@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式政治獻金資料庫（練習平台）</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <span class="badge">公開數據練習</span>
+            <h1>臺灣政治獻金透明化觀測（簡意模擬）</h1>
+            <p>透過簡單的篩選與關鍵字搜尋，練習解讀公開政治獻金的基本結構</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <section class="dashboard-section">
+            <div class="card chart-card">
+                <h3>2026 模擬政黨獻金總額佔比</h3>
+                <div class="chart-wrapper">
+                    <svg width="200" height="200" viewBox="0 0 42 42" class="donut-chart">
+                        <circle class="donut-hole" cx="21" cy="21" r="15.915" fill="#fff"></circle>
+                        <circle class="donut-ring" cx="21" cy="21" r="15.915" fill="transparent" stroke="#e0e0e0" stroke-width="3"></circle>
+                        
+                        <circle id="donut-segment-a" cx="21" cy="21" r="15.915" fill="transparent" stroke="#2a9d8f" stroke-width="4" stroke-dasharray="60 40" stroke-dashoffset="25"></circle>
+                        <circle id="donut-segment-b" cx="21" cy="21" r="15.915" fill="transparent" stroke="#f4a261" stroke-width="4" stroke-dasharray="40 60" stroke-dashoffset="65"></circle>
+                    </svg>
+                    
+                    <div class="chart-legend">
+                        <p><span class="dot party-a"></span> A 政黨模擬總額 (60%)</p>
+                        <p><span class="dot party-b"></span> B 政黨模擬總額 (40%)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card info-card">
+                <h3>什麼是政治獻金？</h3>
+                <p>政治獻金是指對從事競選活動或其他政治活動之個人或政黨，無償提供之經濟利益。公開這些數據有助於防範利益輸送，維護民主政治的公正透明。</p>
+                <div class="tip-box">💡 本網站為前端前端網頁互動練習，資料均為模擬示範數據。</div>
+            </div>
+        </section>
+
+        <section class="interactive-section">
+            <div class="toolbar">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="輸入捐贈者或候選人姓名...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-type="all">全部來源</button>
+                    <button class="filter-btn" data-type="企業">僅看企業捐贈</button>
+                    <button class="filter-btn" data-type="個人">僅看個人捐贈</button>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>捐贈日期</th>
+                            <th>捐贈者名稱</th>
+                            <th>捐贈類別</th>
+                            <th>收受候選人/政黨</th>
+                            <th class="text-right">金額 (NT$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        </tbody>
+                </table>
+                <div id="no-data-msg" class="hidden-msg">找不到符合條件的政治獻金資料。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>政治獻金開放資料練習網頁 ｜ 技術架構：原生 HTML / CSS / Vanilla JS</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
